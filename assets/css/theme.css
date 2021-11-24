@@ -1765,7 +1765,7 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 16px 0;
   text-align: center;
 }
-/* 
+
 .contact-list {
   position: relative;
   padding-left: 0;
@@ -2169,4 +2169,4 @@ a.text-dark:hover, a.text-dark:focus {
 
 .owl-carousel button.owl-dot.active {
   background-color: #6C55F9;
-}  */
+} 

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Algorithms, Analysis and Design</title>
+
+    <link rel="stylesheet" href="../../assets/vendor/animate/animate.css">
+
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../assets/css/maicons.css">
+
+    <link rel="stylesheet" href="../../assets/vendor/owl-carousel/css/owl.carousel.css">
+
+    <link rel="stylesheet" href="../../assets/css/theme.css">
+
+</head>
+
+<body>
+
+    <!-- Back to top button -->
+    <div class="back-to-top"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-float">
+        <div class="container">
+            <a href="../../index.html" class="navbar-brand">Algorithms, Analysis and Design</a>
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarContent">
+                <ul class="navbar-nav ml-lg-4 pt-3 pt-lg-0">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="../Algorithms.html" class="nav-link">Algorithms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../Music.html" class="nav-link">Music Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../Crypto.html" class="nav-link">Cryptography</a>
+                    </li>
+                </ul>
+
+                <div class="ml-auto">
+                    <a href="https://srijan-chak012.github.io/Website/" class="btn btn-outline rounded-pill">Want to
+                        know more about me?</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-banner home-banner">
+        <div class="container h-150">
+            <!-- <div class="row align-items-center h-150">
+                <div class="col-lg-6 py-3 wow fadeInUp"> -->
+            <br><br><br><br>
+            <h2 class="mb-4">Divide and Conquer Algorithms</h2>
+            <h4 class="mb-4">Merge Sort</h4>
+            <p class="text-lg mb-5">
+                The way merge sort works is it divides the array into two parts, calls itself on the two parts and
+                merges the two sorted sub-arrays.<br><br>
+                Function mergesort (a[1...n])<br>
+                Input: An array of numbers a[1...n]<br>
+                Output: A sorted version of this array<br>
+                if n less than 1:<br>
+                return merge (mergesort (a[1... [n/2]]), mergesort (a[[n/2] +1...n]))<br>
+                else:<br>
+                return a<br><br>
+
+                Function merge (X[1...k], y[1...l])<br>
+                k=0: return y[1...l]<br>
+                if l=0: return x[1 ...k]<br>
+                if x[1] less than y[1]: return x[1] o merge(x[2...k],y[1... l]) <br>
+                else: return y[1] o merge (X[1...k],y[2...l])<br><br>
+
+                The algorithm is given by:<br>
+                Q=[] (empty queue)<br>
+                for i=1 to n :<br>
+                inject(Q,[a<sub>i</sub>])<br>
+                while Q>1:<br>
+                inject(Q,merge(eject(Q), eject(Q)))<br>
+                return eject(Q)<br><br>
+
+                We can see that a constant amount of work is done in every iteration/recursive call. The time complexity
+                equation for this merge sort is: T(n) = 2T(n/2) + O(n).<br><br>
+
+                With the implementation of the master theorem, we can see that the time complexity is O(nlogn). For
+                comparison-based sorting, nlogn is a tight lower bound and we can also prove this. This can be done in
+                the way that if a sorting algorithm can do k comparisons to sort a list of n numbers, this means that
+                any present permutation can be converted to the sorted order. Since k comparisons can alter to form any
+                permutation, it can be said to represent all permutations. Thus, this means that k must be at least
+                log2(n!) which corresponds to O(nlogn).
+            </p>
+
+            <h4 class="mb-4">Strassen’s Multiplication</h4>
+            <p class="text-lg mb-5">
+                A new addition to our concept base was the next algorithm of dealing with matrix multiplication. We can
+                do matrix mulitplication in
+                3 methods:
+            <ul class="text-lg mb-5" style="list-style-type:disc; justify-items: left">
+                <li>Naive which was O(n^3) For all the rows and columns, we have to take dot product and add. As the
+                    equations explain the time complexity equation is: T(n) = 8T(n/2) + O(n^2), which is O(n^3).</li>
+                <li>Strassen which was O(n^(log7)) However Strassen reduces the above multiplications by converting them
+                    to addition or subtractions which are faster processes.<br>
+                    Here, it involves a greater number of additions and subtractions but fewer multiplications (7
+                    instead of 8).</li>
+                <li>The fastest Known which was O(n^2.37)</li>
+            </ul>
+            </p>
+            <p class="text-lg mb-5">
+                Strassen’s Matrix multiplication can be performed only on square matrices where n is a power of 2. Order
+                of both of the matrices are n × n. <br><br>
+                Divide X, Y and Z into four (n/2)×(n/2) matrices as represented below: <br>
+                Z=[I J K L] X=[A B C D] and Y=[E F G H]
+                <br><br>
+                Using Strassen’s Algorithm compute the following − <br>
+
+                M1:=(A+C)×(E+F)<br>
+                M2:=(B+D)×(G+H)<br>
+                M3:=(A−D)×(E+H)<br>
+                M4:=A×(F−H)<br>
+                M5:=(C+D)×(E)<br>
+                M6:=(A+B)×(H)<br>
+                M7:=D×(G−E)<br><br>
+
+                Then,<br>
+
+                I:=M2+M3−M6−M7<br>
+                J:=M4+M6<br>
+                K:=M5+M7<br>
+                L:=M1−M3−M4−M5<br><br>
+
+                <b>Analysis</b><br>
+                T(n)={c7 if n=1 and 7xT(n/2) + dxn<sup>2</sup> otherwise where c and d are constants}.<br><br>
+
+                Using this recurrence relation, we get T(n)=O(n<sup>log7</sup>)
+                Hence, the complexity of Strassen’s matrix multiplication algorithm is O(n<sup>log7</sup>).
+            </p>
+            <h4 class="mb-4">Karatsuba's Algorithm</h4>
+            <p class="text-lg mb-5">
+                Karatsuba's technique begins with a formula that allows one to compute the product of two huge integers,
+                x and y, using three multiplications of smaller numbers, each with roughly half as many digits as x or
+                y, plus some adds and digit shifts. This fundamental step is a generalisation of a similar complex
+                multiplication method, in which the imaginary unit i is substituted with a power of the base.<br><br>
+                For simplicity let us assume that n is even<br><br>
+                X = Xl*2<sup>n/2</sup> + Xr [Xl and Xr contain leftmost and rightmost n/2 bits of X]<br>
+                Y = Yl*2<sup>n/2</sup> + Yr [Yl and Yr contain leftmost and rightmost n/2 bits of Y]<br><br>
+                The product XY can be written as following.<br>
+                XY = (Xl*2<sup>n/2</sup> + Xr)(Yl*2<sup>n/2</sup> + Yr)<br>
+                = 2<sup>n</sup> XlYl + 2<sup>n/2</sup>(XlYr + XrYl) + XrYr<br><br>
+                If we take a look at the above formula, there are four multiplications of size n/2, so we basically
+                divided the problem of size n into four sub-problems of size n/2. But that doesn’t help because solution
+                of recurrence T(n) = 4T(n/2) + O(n) is O(n^2). The tricky part of this algorithm is to change the middle
+                two terms to some other form so that only one extra multiplication would be sufficient. The following is
+                tricky expression for middle two terms.
+                <br>
+                XlYr + XrYl = (Xl + Xr)(Yl + Yr) - XlYl- XrYr<br><br>
+                So the final value of XY becomes: <br>
+                XY = 2<sup>n</sup> XlYl + 2<sup>n/2</sup>* [(Xl + Xr)(Yl + Yr) - XlYl - XrYr] + XrYr
+                <br>
+                With above trick, the recurrence becomes T(n) = 3T(n/2) + O(n) and solution of this recurrence is
+                O(n<sup>1.59</sup>).
+                <br><br>
+            </p>
+            <!-- </div>
+            </div> -->
+        </div>
+    </div>
+
+
+    <script src="../../assets/js/jquery-3.5.1.min.js"></script>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../../assets/vendor/wow/wow.min.js"></script>
+
+    <script src="../../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+    <script src="../../assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+
+    <script src="../../assets/vendor/animateNumber/jquery.animateNumber.min.js"></script>
+
+    <script src="../../assets/js/google-maps.js"></script>
+
+    <script src="../../assets/js/theme.js"></script>
+
+
+</body>
+
+</html>
